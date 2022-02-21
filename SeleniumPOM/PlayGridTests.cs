@@ -1,6 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.IO;
+
 namespace SeleniumPOM
 {
 
@@ -10,7 +13,8 @@ namespace SeleniumPOM
 
         public IWebDriver InitDriver()
         {
-            return new ChromeDriver(@"C:\Users\RamūnasAndrijauskas\source\repos\SeleniumPOM\SeleniumPOM");
+            var dir = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            return new ChromeDriver(dir);
         }
 
         [TestMethod]
@@ -48,7 +52,6 @@ namespace SeleniumPOM
         public void Check3on3GridDialogBoxOpenedSuccess()
         {
             IWebDriver driver = InitDriver();
-            PageObject pageObject = new PageObject(driver);
             PageNavigator navigator = new PageNavigator(driver);
 
             // Navigating to 3x3 grid using query strings
@@ -97,7 +100,6 @@ namespace SeleniumPOM
         public void Check3on3GridDialogDoesNotOpenIfInnerIconsAreClicked()
         {
             IWebDriver driver = InitDriver();
-            PageObject pageObject = new PageObject(driver);
             PageNavigator navigator = new PageNavigator(driver);
 
             navigator.GoToHomepage();

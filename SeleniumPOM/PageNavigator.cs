@@ -10,9 +10,9 @@ namespace SeleniumPOM
     class PageNavigator
     {
         private readonly IWebDriver driver;
+        // This should be moved to config file, but for now change this variable to match your doc path
         readonly string Url = "file:///C:/Users/Ram%C5%ABnasAndrijauskas/Downloads/QA%20Task.html";
-
-        SelectorFactory factory = new SelectorFactory();
+        readonly SelectorFactory factory = new SelectorFactory();
 
         public PageNavigator(IWebDriver driver)
         {

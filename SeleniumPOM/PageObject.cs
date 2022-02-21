@@ -10,7 +10,7 @@ namespace SeleniumPOM
     public class PageObject
     {
         private readonly IWebDriver driver;
-        SelectorFactory factory = new SelectorFactory();
+        readonly SelectorFactory factory = new SelectorFactory();
 
         public PageObject(IWebDriver driver)
         {
